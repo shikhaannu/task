@@ -11,6 +11,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+  <!-- Custom CSS -->
+<link rel="stylesheet" href="style.css">
+
     <title>Task</title>
 </head>
 
@@ -54,6 +57,63 @@
 
                 
               </div>
+
+              <table id="myTable">
+                <tr class="header">
+                  <th style="width:40%;">Emp Name</th>
+                  <th style="width:20%;">Age</th>
+                  <th style="width:40%;">Email Id</th>
+                  <th style="width:20%;">Departments</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Germany</td>
+                  <td>Sweden</td>
+                  <td>Sweden</td>
+                </tr>
+                <tr>
+                  <td>Berglunds snabbkop</td>
+                  <td>Sweden</td>
+                  <td>Sweden</td>
+                  <td>Sweden</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>UK</td>
+                  <td>Sweden</td>
+                  <td>Sweden</td>
+                </tr>
+            
+                  <tr>
+                    <td>Island Trading</td>
+                    <td>UK</td>
+                    <td>Sweden</td>
+                    <td>Sweden</td>
+                  </tr>
+         
+              </table>
+              
+              <script>
+              function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                  td = tr[i].getElementsByTagName("td")[0];
+                  if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      tr[i].style.display = "";
+                    } else {
+                      tr[i].style.display = "none";
+                    }
+                  }       
+                }
+              }
+              </script>
+
             </div>
         </div>
     </div>
