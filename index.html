@@ -21,25 +21,30 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3><ins>Employee Details (total no. of employess </ins></h3>
+                <h3 class="text-primary">Total number of employees</h3>
 
-    
+    <hr>
         
               
               <div class="d-flex bd-highlight mb-3">
-                <div class="p-2 bd-highlight">  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                <div class="p-2 bd-highlight">  
+                    <div class="dropdown">
+                    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Department
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Computer</a>
-                        <a class="dropdown-item" href="#">Physics</a>
-                        <a class="dropdown-item" href="#">Chemistry</a>
-                    </div>
+                    </button> -->
+                    <select id='select'>
+                        <option><a href="index.html">Department</option>
+                        <option value="Computer">Computer </option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry"> Chemistry </option>
+                        </select>
                 </div></div>
-                <div class="p-2 bd-highlight"><input type="text" placeholder="Name/Email"></div>
-                <div class="p-2 bd-highlight">  <button type="button" class="btn btn-light mb-3">Search</button></div>
+                <!-- <div class="p-2 bd-highlight"><input type="text" placeholder="Name/Email"></div> -->
+                <div class="p-2 bd-highlight">
+                <input type="text" placeholder="Name/Email" name="search" id="myInput" onkeyup="myFunction()" >
+                    <button type="submit" id="myInput" onkeyup="myFunction()">Search</button>
+                  </div>
                 <div class="p-2 bd-highlight"> <button type="button" class="btn btn-light mb-3">Reset and reload data</button></div>
                 <div class="ml-auto p-2 bd-highlight">
                     <div class="dropdown">
@@ -58,7 +63,91 @@
                 
               </div>
 
-              <table id="myTable">
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+              
+                  <table id="myTable" class="table table-striped table-bordered">
+                              <tr class="header">
+                                 <th style="width:40%;">Emp Name</th>
+                                <th style="width:20%;">Age</th>
+                                <th style="width:40%;">Email Address</th>
+                                <th style="width:20%;">No. of Departments</th>
+                              </tr>
+                              <tr>
+                                <td>Computer</td>
+                                 <td>Employee One</td>
+                                <td>40</td>
+                                <td>One@gmail.com</td>
+                                <td>2</td>
+                              </tr>
+                              <tr>
+                               <td>Computer</td>
+                                <td>Employee Two</td>
+                                <td>10</td>
+                                <td>Two@gmail.com</td>
+                                <td>1</td>
+                              </tr>
+                              <tr>
+                               <td>Computer</td>
+                                  <td>Employee Three</td>
+                                  <td>60</td>
+                                  <td>third@gmail.com</td>
+                                  <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Physics</td>
+                                     <td>Employee One</td>
+                                    <td>40</td>
+                                    <td>One@gmail.com</td>
+                                    <td>2</td>
+                                  </tr>
+                                  <tr>
+                                   <td>Physics</td>
+                                    <td>Employee Two</td>
+                                    <td>10</td>
+                                    <td>Two@gmail.com</td>
+                                    <td>1</td>
+                                  </tr>
+                                  <tr>
+                                   <td>Chemistry</td>
+                                      <td>Employee Three</td>
+                                      <td>60</td>
+                                      <td>third@gmail.com</td>
+                                      <td>6</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Chemistry</td>
+                                           <td>Employee Four</td>
+                                           <td>60</td>
+                                           <td>fourth@gmail.com</td>
+                                           <td>6</td>
+                                         </tr>
+                                
+                                
+                                
+                                
+                          
+                           
+                       
+                            </table>
+              <script>
+              selectfilter($('table'),$('#select').val());
+              
+              $('#select').change(function() {       
+                  var selection = $(this).val();  
+                  $('table').find('tr').show();        
+                  selectfilter($('table'),selection);
+                });
+                
+              function selectfilter(table ,selection)
+              {
+                table.find('tr').filter(function(index, item) {
+                    return $(item).find('td:first-child').text().split(',').indexOf(selection) === -1;
+                  }).hide();
+              }
+              </script>
+
+             <table id="#myTable" class="table table-striped table-bordered">
                 <tr class="header">
                   <th style="width:40%;">Emp Name</th>
                   <th style="width:20%;">Age</th>
@@ -66,33 +155,47 @@
                   <th style="width:20%;">Departments</th>
                 </tr>
                 <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Germany</td>
-                  <td>Sweden</td>
-                  <td>Sweden</td>
+                  <td>Employee One</td>
+                  <td>40</td>
+                  <td>One@gmail.com</td>
+                  <td>2</td>
                 </tr>
                 <tr>
-                  <td>Berglunds snabbkop</td>
-                  <td>Sweden</td>
-                  <td>Sweden</td>
-                  <td>Sweden</td>
+                  <td>Employee Two</td>
+                  <td>10</td>
+                  <td>Two@gmail.com</td>
+                  <td>1</td>
                 </tr>
                 <tr>
-                  <td>Island Trading</td>
-                  <td>UK</td>
-                  <td>Sweden</td>
-                  <td>Sweden</td>
-                </tr>
-            
-                  <tr>
-                    <td>Island Trading</td>
-                    <td>UK</td>
-                    <td>Sweden</td>
-                    <td>Sweden</td>
+                    <td>Employee Three</td>
+                    <td>10</td>
+                    <td>Three@gmail.com</td>
+                    <td>2</td>
                   </tr>
+                  <tr>
+                    <td>Employee Four</td>
+                    <td>60</td>
+                    <td>Four@gmail.com</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Employee Five</td>
+                    <td>70</td>
+                    <td>Five@gmail.com</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Employee Six</td>
+                    <td>70</td>
+                    <td>Six@gmail.com</td>
+                    <td>2</td>
+                  </tr>
+       
+            
+             
          
               </table>
-              
+        
               <script>
               function myFunction() {
                 var input, filter, table, tr, td, i, txtValue;
