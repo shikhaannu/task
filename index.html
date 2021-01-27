@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<title>Assignment</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -137,43 +137,9 @@
 
 
 
-
-
-                    // selectfilter($('table'), $('#select').val());
-
-                    // $('#select').change(function () {
-                    //     var selection = $(this).val();
-                    //     $('table').find('tr').show();
-                    //     selectfilter($('table'), selection);
-                    // });
-
-                    // function selectfilter(table, selection) {
-                    //     table.find('tr').filter(function (index, item) {
-                    //         return $(item).find('td:first-child').text().split(',').indexOf(selection) === -1;
-                    //     }).hide();
-                    // }
+ 
                 </script>
-                <script>
-                    function myFunction() {
-                        var input, filter, table, tr, td, i, txtValue;
-                        input = document.getElementById("myInput");
-                        filter = input.value.toUpperCase();
-                        table = document.getElementById("myTable");
-                        tr = table.getElementsByTagName("tr");
-                        for (i = 0; i < tr.length; i++) {
-                            td = tr[i].getElementsByTagName("td")[0];
-                            if (td) {
-                                txtValue = td.textContent || td.innerText;
-                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                    tr[i].style.display = "";
-                                } else {
-                                    tr[i].style.display = "none";
-                                }
-                            }
-                        }
-                    }
-                </script>
-
+             
             </div>
         </div>
     </div>
